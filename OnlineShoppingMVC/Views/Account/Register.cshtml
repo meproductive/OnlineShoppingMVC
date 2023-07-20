@@ -1,0 +1,77 @@
+﻿@model OnlineShoppingMVC.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <section>
+        <div class="wrapper">
+            <div class="form-box register">
+                <h2>Register</h2>
+                <form action="/Account/Register" method="post">
+                    <div class="input-box">
+                        <label>Name</label>
+                        <input type="text" name="Name" required placeholder="Write your name here">
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Surname</label>
+                        <input type="text" name="Surname" required placeholder="Write your surname here">
+                        @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Username</label>
+                        <input type="text" name="UserName" required placeholder="Write your surname here">
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Email</label>
+                        <input type="email" name="Email" required placeholder="Write your e-mail here">
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Password</label>
+                        <input type="password" name="Password" placeholder="Write your password here">
+                        @Html.ValidationMessage("Error", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Repassword</label>
+                        <input type="password" name="RePassword" placeholder="Write your password here">
+                        @Html.ValidationMessage("Error", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Phone Number</label>
+                        <input type="number" name="PhoneNumber" required placeholder="Write your phone number here">
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Adress</label>
+                        <input type="text" name="Adress" required placeholder="Write your adress here">
+                        @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Birth Date</label>
+                        <input type="date" name="Birthdate" required>
+                        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="remember-forgot">
+                        <span class="d-flex"><input type="checkbox" value="true" name="IsActive"><label class="playfair">I agree to the terms and conditions</label></span>
+                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                    </div>
+                    <button type="submit" class="btn">Register</button>
+                    @Html.ValidationMessage("hata", new { @class = "text-danger" })
+                    <div class="login-register">
+                        <p>Already have an account?<a href="/Account/Login" class="login-link">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+}
+
+

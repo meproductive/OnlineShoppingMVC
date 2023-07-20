@@ -1,0 +1,39 @@
+﻿@model OnlineShoppingMVC.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <section>
+        <div class="wrapper">
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form action="/Account/Login">
+                    <div class="input-box">
+                        <label>Username</label>
+                        <input type="text" name="UserName" required placeholder="Write your e-mail here">
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Password</label>
+                        <input type="password" name="Password" required placeholder="Write your password here">
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="remember-forgot d-flex">
+                        <span class="d-flex"><input type="checkbox" value="true" name="RememberMe"><label class="playfair">Remember me</label></span>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    @Html.ValidationMessage("loginerror", new { @class = "text-danger" })
+                    <button type="submit" class="btn">Login</button>
+                    <div class="login-register">
+                        <p>Don't have an account?<a href="/Account/Register" class="register-link">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+}

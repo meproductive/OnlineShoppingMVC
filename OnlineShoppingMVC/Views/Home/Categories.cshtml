@@ -1,0 +1,9 @@
+﻿@model IEnumerable<OnlineShoppingMVC.Entity.Category>
+
+
+@foreach (var item in Model)
+{
+    <li id="dp-li-item"><a href="/Home/Shop/@item.Id">@item.Name</a></li>
+}
+
+

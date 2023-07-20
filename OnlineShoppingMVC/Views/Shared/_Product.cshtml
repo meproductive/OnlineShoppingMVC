@@ -1,0 +1,17 @@
+﻿@using OnlineShoppingMVC.Models
+@model IEnumerable<ProductViewModel>
+
+@foreach (var item in Model)
+{
+    <div class="card-content">
+        <a href="/Home/Detail/@item.Id"><img src="~/Content/Image/@item.ImageUrl" style="width:100%"></a>
+        <h1>@item.Name</h1>
+        <p class="price">@item.Price</p>
+        <p>@item.Description</p>
+        @using (Html.BeginForm("AddToCart", "Cart"))
+        {
+            @Html.Hidden("Id", item.Id)
+            <button type="submit">Add to Cart</button>
+        }
+    </div>
+}
