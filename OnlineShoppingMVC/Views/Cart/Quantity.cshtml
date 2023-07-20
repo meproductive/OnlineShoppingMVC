@@ -1,0 +1,12 @@
+﻿@model OnlineShoppingMVC.Entity.Cart
+
+@if (Model.Items.Count > 0)
+{
+    <a href="#"><i class="fa-solid fa-bag-shopping bag-dp-btn"><span class="quantity">@(Model.Items.Count)</span></i></a>
+}
+else
+{
+    <a href="#"><i class="fa-solid fa-bag-shopping bag-dp-btn"></i></a>
+}
+
+

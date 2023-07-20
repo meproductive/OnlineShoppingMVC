@@ -31,4 +31,3 @@ namespace OnlineShoppingMVC.Models
         public string ImageUrl { get; set; }
     }
 }
-}

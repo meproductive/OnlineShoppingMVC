@@ -1,0 +1,19 @@
+﻿@model OnlineShoppingMVC.Entity.Cart
+
+@foreach (var item in Model.Items)
+{
+    <li class="cart-item" id="hoverable">
+        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+        {
+            @Html.Hidden("Id", item.Product.Id)
+            <button><i class="fa-solid fa-xmark cart-close-icon"></i></button>
+        }
+        <img src="~/Content/Image/@item.Product.ImageUrl" alt="#" width="60" />
+        <div class="item-content">
+            <h3 class="playfair">@item.Product.Name</h3>
+            <span class="cart-price playfair">@((item.Product.Price*item.Quantity).ToString("c"))</span>
+        </div>
+    </li>
+}
+
+

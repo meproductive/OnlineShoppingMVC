@@ -1,0 +1,108 @@
+﻿@model OnlineShoppingMVC.Entity.Product
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<section>
+    <div class="wrapper">
+        <div class="panel-content d-flex">
+            <div class="panel-container">
+                <div id="Informations" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+                <div id="AddCategory" class="paneltab">
+                </div>
+                <div id="AddProduct" class="paneltab">
+                    <div class="box-model">
+                        @using (Html.BeginForm())
+                        {
+
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="register-model">
+                                <h2>Add Product</h2>
+                                <form action="/AdminProduct/AddProduct" method="post">
+                                    <div class="input-box">
+                                        <label>Product Name</label>
+                                        <input type="text" name="Name" required placeholder="Write product name here">
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Price</label>
+                                        <input type="text" name="Price" required placeholder="Write price here">
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Color</label>
+                                        <input type="text" name="Color" required placeholder="Write color here">
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Brand</label>
+                                        <input type="text" name="Brand" required placeholder="Write brand here">
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    @*<div class="input-box">
+                                            <label>Category Name</label>
+                                            <input type="text" name="CategoryId" required placeholder="Write brand here">
+                                        </div>*@
+                                    <div class="input-box">
+                                        <label for="Stock">Stock</label>
+                                        <input name="Stock" type="number" step="1" required placeholder="Write amount here">
+                                    </div>
+                                    <div class="">
+                                        <select name="Size" id="size">
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Description</label>
+                                        <textarea name="Description" rows="5" required placeholder="Write description here"></textarea>
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Image</label>
+                                        <input name="ImageUrl" type="file">
+                                    </div>
+                                    <div class="remember-forgot">
+                                        <span class="d-flex"><input name="Popular" type="checkbox" value="true">Popular</span>
+                                    </div>
+                                    <button type="submit" class="btn">Apply</button>
+                                </form>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div id="Favourites" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+                <div id="Comments" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+            </div>
+            <ul class="panellist">
+                <li><a>Bilgilerim</a></li>
+                <li><a href="/Admin/AddProduct">Ürün Ekleme</a></li>
+                <li><a href="/Admin/AddCategory">Add Cagetory</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+
+

@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<section>
+    <div class="wrapper">
+        <div class="panel-content d-flex">
+            <div class="panel-container">
+                <div id="Informations" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+                <div id="Orders" class="paneltab">
+                    @Html.Action("Orders", "User")
+                </div>
+                <div id="Favourites" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+                <div id="Comments" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+            </div>
+            <ul class="panellist">
+                <li><button class="panel-link" onclick="Tab('Informations', this)" id="default">Bilgilerim</button><i></i></li>
+                <li><button class="panel-link" onclick="Tab('Orders',this)">Orders</button><i></i></li>
+                <li><button class="panel-link" onclick="Tab('Favourites',this)">Favorilerim</button><i></i></li>
+                <li><button class="panel-link" onclick="Tab('Comments',this)">Değerlendirmelerim</button><i></i></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+

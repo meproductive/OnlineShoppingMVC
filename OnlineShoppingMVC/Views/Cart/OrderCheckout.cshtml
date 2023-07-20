@@ -1,0 +1,63 @@
+﻿@model OnlineShoppingMVC.Models.OrderViewModel
+@{
+    ViewBag.Title = "OrderCheckout";
+}
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <section>
+        <div class="wrapper">
+            <div class="form-box">
+                <h2>Order Informations</h2>
+                <form action="#" method="post">
+                    <div class="input-box">
+                        <label>Name</label>
+                        <input type="text" name="Name" required placeholder="Write your name here">
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Surname</label>
+                        <input type="text" name="Surname" required placeholder="Write your surname here">
+                        @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Adress Title</label>
+                        <input type="text" name="AdressTitle" required placeholder="Write your adress title here">
+                        @Html.ValidationMessageFor(model => model.AdressTitle, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Adress</label>
+                        <input type="text" name="Adress" required placeholder="Write your adress here">
+                        @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>City</label>
+                        <input type="text" name="City" required placeholder="Write your city here">
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>County</label>
+                        <input type="text" name="County" required placeholder="Write your county here">
+                        @Html.ValidationMessageFor(model => model.County, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Street</label>
+                        <input type="text" name="Street" required placeholder="Write your street here">
+                        @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="input-box">
+                        <label>Post Code</label>
+                        <input type="text" name="PostCode" required placeholder="Write your post code here">
+                        @Html.ValidationMessageFor(model => model.PostCode, "", new { @class = "text-danger" })
+                    </div>
+                    <button type="submit" class="btn">Complete Order</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+}

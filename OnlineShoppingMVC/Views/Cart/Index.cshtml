@@ -1,0 +1,54 @@
+﻿@model OnlineShoppingMVC.Entity.Cart
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4 class="playfair wrapper cart-title">Cart</h4>
+<section class="wrapper d-flex">
+    @if (Model.Items.Count > 0)
+    {
+        <div class="cart-wrap">
+            <ul>
+                @foreach (var item in Model.Items)
+                {
+                    <li class="cart-items d-flex">
+                        <img src="~/Content/Image/@item.Product.ImageUrl" alt="#" width="100" />
+                        <div class="items-content">
+                            <a href="#" class="d-flex">
+                                <h3 class="playfair">@item.Product.Name</h3>
+                                <p class="playfair">@item.Product.Description</p>
+                            </a>
+                            <span class="quantity"><i class="fa-solid fa-minus cart-btn-left"></i><span class="quantity-count">@item.Quantity</span><i class="fa-solid fa-plus cart-btn-right"></i></span>
+                            <span class="cart-price playfair">@item.Product.Price</span>
+                            @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                            {
+                                @Html.Hidden("Id", item.Product.Id)
+                                <button type="submit" class="cart-x-btn"><i class="fa-solid fa-xmark cart-x-icon"></i></button>
+                            }
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="sum-wrap">
+            <div class="summary">
+                <h4 class="playfair">SUMMARY</h4>
+                <span class="line"><hr /></span>
+                <div class="summary-content d-flex">
+                    <p class="playfair">Total</p>
+                    @foreach (var item in Model.Items)
+                    {
+                        <span class="playfair">@((item.Product.Price*item.Quantity).ToString("c"))</span>
+                    }
+                </div>
+            </div>
+            <a href="/Cart/OrderCheckout" id="buy-btn" class="playfair">Buy Now</a>
+            <a href="/Home/Index" id="buy-btn" class="playfair">Continue To Shop</a>
+        </div>
+    }
+    else
+    {
+        <p>Sepetinizde ürün bulunmamaktadır.</p>
+    }
+</section>
+

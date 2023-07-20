@@ -40,4 +40,3 @@ namespace OnlineShoppingMVC.Entity
         public virtual Product Product { get; set; }
     }
 }
-}

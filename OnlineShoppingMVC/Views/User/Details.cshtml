@@ -1,0 +1,62 @@
+﻿@model OnlineShoppingMVC.Models.OrderDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="wrapper">
+    <dl>
+        <dt>Order ID</dt>
+        <dd>@Model.Id</dd>
+        <dt>Order Number</dt>
+        <dd>@Model.OrderNumber</dd>
+        <dt>Total</dt>
+        <dd>@Model.Total</dd>
+        <dt>Order State</dt>
+        <dd>@Model.OrderState</dd>
+        <dt>Order Date</dt>
+        <dd>@Model.OrderDate</dd>
+        <dt>Total</dt>
+        <dd>@Model.Total</dd>
+        <dt>Adress</dt>
+        <dd>@Model.Adress</dd>
+        <dt>City</dt>
+        <dd>@Model.City</dd>
+        <dt>County</dt>
+        <dd>@Model.County</dd>
+        <dt>Street</dt>
+        <dd>@Model.Street</dd>
+        <dt>Products</dt>
+        <dd>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                <img src="~/Content/Image/@item.ImageUrl" width="100" />
+                            </td>
+                            <td>
+                                @item.ProductName
+                            </td>
+                            <td>
+                                @item.Quantity
+                            </td>
+                            <td>
+                                @item.Price
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,64 @@
+﻿@model OnlineShoppingMVC.Entity.Category
+@{
+    ViewBag.Title = "AddCategory";
+}
+
+<section>
+    <div class="wrapper">
+        <div class="panel-content d-flex">
+            <div class="panel-container">
+                <div id="Informations" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+                <div id="AddCategory" class="paneltab">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="box-model">
+
+                            <div class="register-model">
+                                <h2>Add Product</h2>
+                                <form action="/AdminCategory/AddCategory" method="post">
+                                    <div class="input-box">
+                                        <label>Category Name</label>
+                                        <input type="text" name="Name" required placeholder="Write cagetory name here">
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="input-box">
+                                        <label>Description</label>
+                                        <textarea rows="5" name="Description" required placeholder="Write description here"></textarea>
+                                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                    </div>
+                                    <button type="submit" class="btn">Apply</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+                <div id="AddProduct" class="paneltab">
+                    <div class="box-model">
+                    </div>
+                </div>
+                <div id="Favourites" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+                <div id="Comments" class="paneltab">
+                    <p>
+                        Some information about the product
+                    </p>
+                </div>
+            </div>
+            <ul class="panellist">
+                <li><a>Bilgilerim</a></li>
+                <li><a href="/Admin/AddProduct">Ürün Ekleme</a></li>
+                <li><a href="/Admin/AddCategory">Add Cagetory</a></li>
+            </ul>
+        </div>
+    </div>
+</section>

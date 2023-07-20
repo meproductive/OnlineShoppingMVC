@@ -7,7 +7,6 @@ namespace OnlineShoppingMVC.Entity
 {
     public class Cart
     {
-
         public List<CartItem> Items { get; set; }
 
         public Cart()
@@ -45,5 +44,4 @@ namespace OnlineShoppingMVC.Entity
         public int Quantity { get; set; }
 
     }
-}
 }
